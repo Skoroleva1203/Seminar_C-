@@ -19,7 +19,7 @@ else
 string numberStr = num.ToString(); // Преобразовали число в строку
 
 Console.WriteLine ($"По условию, из числа {numberStr} требуется удалить вторую цифру {numberStr[1]}");
-//numberStr[2] = numberStr[3];
+//numberStr[1] =numberStr[2];
 numberStr = numberStr.Remove(1,1); // Метод, возвращает строку, в которой удалено указанное сичло символов в указанной позиции
 Console.WriteLine ($"Результат выполнения задания: {numberStr}"); 
 
