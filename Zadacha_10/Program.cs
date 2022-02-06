@@ -38,7 +38,7 @@ if (answer == 1)
 }
 else if (answer == 2)
 {
-    num = new Random().Next(1,999); // Выбрали случайное
+    num = new Random().Next(100,999); // Выбрали случайное
     Console.WriteLine ($"Cгенерировано случайное число {num}");
     //int resalt = Get(num);
     //Console.WriteLine(resalt);
