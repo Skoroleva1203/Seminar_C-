@@ -7,7 +7,7 @@ int[] array = new int[12]; // Задали массив из 12 элементо
 Console.WriteLine("Создали массив");
 for (int i=0; i<12; i++)
 {
-    array[i] = new Random().Next(-10, 10); // Заполнили массив числами и отрицательными и положительными
+    array[i] = new Random().Next(-9, 10); // Заполнили массив числами и отрицательными и положительными
     Console.Write($"{array[i]}  "); // Вывели на печать
     if (array[i] > 0) 
         sumPol = sumPol + array[i];
