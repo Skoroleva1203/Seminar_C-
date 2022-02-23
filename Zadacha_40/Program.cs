@@ -32,7 +32,7 @@ float[] array = new float[n]; // Создали массив из веществ
 Random rnd = new Random();
 for (int i=0; i<n; i++)
 {
-    array[i] = rnd.Next(100,1000); // Заполням массив случайными трехзначными числами
+    array[i] = rnd.Next(); // Заполням массив случайными числами
     Console.Write($"{array[i]}  "); // Вывели на печать
 }
 Console.WriteLine();
