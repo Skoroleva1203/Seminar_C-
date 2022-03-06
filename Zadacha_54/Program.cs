@@ -19,6 +19,38 @@ string InputNumbers() // Метод для корректного ввода ч�
     return stroka;
 }
 
+void FillArray (double[,] matr) // Метод заполнения массива случайными часлами и вывода на консоль
+{   
+    Random rnd = new Random();
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        Console.WriteLine();
+        for (int j = 0; j < matr.GetLength(1); j++)
+            {
+            matr[i,j] = rnd.Next(-100,101); // Заполням массив случайными числами
+            Console.Write ($"{matr [i,j]}    ");
+            }
+    }   
+Console.WriteLine("\n");
+}
+
+void MainDiagonal (double[,] matrix) //Метод  посчета и вывода на косоль суммы элементов главной диагонали массива
+{   
+    double sum = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (i == j ) // Проверка на четность двух индексов
+                    {
+                        Console.WriteLine($"Элемент [{i},{j}] = {matrix[i,j]} принадлежит главной диагонале матрицы");
+                        sum = sum + matrix[i,i];
+                    }
+                }
+        }   
+    Console.WriteLine ($"\nСумма главной диагонали матрицы = {sum}");
+}
+
 Console.WriteLine ("Введите размерность массива.");
 Console.Write("Число строк.  ");
 string str = InputNumbers(); 
@@ -28,31 +60,7 @@ str = InputNumbers();
 int k = int.Parse (str); 
 double[,] array = new double [n , k];
    
-    Random rnd = new Random();
-    for (int i = 0; i < n; i++)
-    {
-        Console.WriteLine();
-        for (int j = 0; j < k; j++)
-            {
-            array[i,j] = rnd.Next(-100,101); // Заполням массив случайными числами
-            Console.Write ($"{array [i,j]}    ");
-            }
-    }   
-Console.WriteLine("\n");
-
-double sum = 0;
-for (int i = 1; i < n; i++)
-    {
-        for (int j = 1; j < k; j++)
-            {
-                if (i == j ) // Проверка на четность двух индексов
-                {
-                    Console.WriteLine($"Элемент [{i},{j}] = {array[i,j]} принадлежит главной диагонале матрицы");
-                    sum = sum + array[i,i];
-                }
-            }
-    }   
-
-Console.WriteLine ($"\nСумма главной диагонали матрицы = {sum}");
+FillArray(array); 
+MainDiagonal(array);
 
 
