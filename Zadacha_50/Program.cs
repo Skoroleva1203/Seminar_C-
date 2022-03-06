@@ -19,6 +19,45 @@ string InputNumbers() // Метод для корректного ввода ч�
     return stroka;
 }
 
+void FillArray (int[,] matr) // Метод заполнения массива случайными часлами и вывода на консоль
+{   
+    Random rnd = new Random();
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        Console.WriteLine();
+        for (int j = 0; j < matr.GetLength(1); j++)
+            {
+            matr[i,j] = rnd.Next(-100,101); // Заполням массив случайными числами
+            Console.Write ($"{matr [i,j]}    ");
+            }
+    }   
+Console.WriteLine("\n");
+}   
+
+void ReplacOpposite(int[,] matrix) // Метод 
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                if (matrix[i,j]%2 == 0) // Проверка на четность
+                matrix[i,j] = -matrix[i,j];
+            }
+    }   
+}    
+    
+void PrintMatrix(int[,] mat)    // вывод массива на консоль
+{    
+    for (int i = 0; i < mat.GetLength(0); i++)
+    {
+        Console.WriteLine();
+        for (int j = 0; j < mat.GetLength(1); j++)
+        {
+            Console.Write ($"{mat [i,j]}    ");
+        }
+    }   
+}
+
 Console.WriteLine ("Введите размерность массива.");
 Console.Write("Число строк.  ");
 string str = InputNumbers(); 
@@ -28,33 +67,7 @@ str = InputNumbers();
 int k = int.Parse (str); 
 int[,] array = new int [n , k];
    
-    Random rnd = new Random();
-    for (int i = 0; i < n; i++)
-    {
-        Console.WriteLine();
-        for (int j = 0; j < k; j++)
-            {
-            array[i,j] = rnd.Next(); // Заполням массив случайными числами
-            Console.Write ($"{array [i,j]}    ");
-            }
-    }   
-
-
- for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < k; j++)
-            {
-                if (array[i,j]%2 == 0) // Проверка на четность
-                array[i,j] = -array[i,j];
-            }
-    }   
-
-Console.WriteLine ("\n\nРезультат замены четных элемнетов массива на противоположные");
-for (int i = 0; i < n; i++)
-    {
-        Console.WriteLine();
-        for (int j = 0; j < k; j++)
-            {
-            Console.Write ($"{array [i,j]}    ");
-            }
-    }   
+FillArray(array); // Заполнили случайными часлами
+ReplacOpposite(array); // Замена определенных элементов на противоположные
+Console.WriteLine ("\nРезультат замены четных элемнетов массива на противоположные");
+PrintMatrix(array);
